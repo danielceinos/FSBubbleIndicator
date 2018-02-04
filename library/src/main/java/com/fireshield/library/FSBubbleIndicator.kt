@@ -36,10 +36,11 @@ class FSBubbleIndicator(context: Context?, attrs: AttributeSet?) : FrameLayout(c
     val textSize = ta.getDimension(R.styleable.FSBubbleIndicator_textSize, 20F)
     val bubbleColor = ta.getColor(R.styleable.FSBubbleIndicator_bubbleColor, Color.RED)
     val textColor = ta.getColor(R.styleable.FSBubbleIndicator_textColor, Color.WHITE)
+    val shadowColor = ta.getColor(R.styleable.FSBubbleIndicator_shadowColor, Color.argb(120, 0, 0, 0))
 
     paint = Paint(Paint.ANTI_ALIAS_FLAG)
     paint.color = bubbleColor
-    paint.setShadowLayer(dpToPx(5), 0F, dpToPx(1), Color.argb(120, 0, 0, 0))
+    paint.setShadowLayer(dpToPx(5), 0F, dpToPx(1), shadowColor)
     setLayerType(LAYER_TYPE_SOFTWARE, paint)
 
     count = ta.getInteger(R.styleable.FSBubbleIndicator_count, 0)
@@ -67,11 +68,16 @@ class FSBubbleIndicator(context: Context?, attrs: AttributeSet?) : FrameLayout(c
 
     if (tvCount != null) {
       val params = tvCount.layoutParams
-      if (tvCount.height > tvCount.width) {
-        params.width = Math.max(tvCount.height, tvCount.width)
-      }
-      tvCount.requestLayout()
       val margin = dpToPx(5)
+      if (tvCount.height > tvCount.width) {
+        params.width = (Math.max(tvCount.height, tvCount.width) + margin).toInt()
+        params.height = (tvCount.height + margin).toInt()
+      } else {
+        params.width = (tvCount.width + margin).toInt()
+        params.height = (tvCount.height + margin).toInt()
+      }
+
+      tvCount.requestLayout()
 
       rect.left = margin
       rect.top = margin

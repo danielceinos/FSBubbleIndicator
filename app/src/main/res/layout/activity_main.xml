@@ -31,9 +31,10 @@
     <com.fireshield.library.FSBubbleIndicator
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:count="555"
+        app:count="5"
         app:textSize="34sp"
         app:bubbleColor="#e7f1a2"
+        app:shadowColor="#311b92"
         app:textColor="#000"
         />
 
