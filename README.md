@@ -3,6 +3,10 @@
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/danielceinos/FSBubbleIndicator/blob/master/LICENSE.md)
 [![Version](https://img.shields.io/badge/jitpack-1.0.0-green.svg)](https://jitpack.io/#danielceinos/FSBubbleIndicator/1.0.0)
 
+<p align="center">
+	<img src="https://github.com/danielceinos/FSBubbleIndicator/blob/develop/example.png" />
+</p>
+
 # Requirements
 
 - minAndroidSdk: 16
