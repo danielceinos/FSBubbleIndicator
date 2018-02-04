@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <declare-styleable name="FSBubbleIndicator">
+    <attr format="dimension" name="textSize" />
+    <attr format="color" name="bubbleColor" />
+    <attr format="integer" name="count" />
+  </declare-styleable>
+</resources>

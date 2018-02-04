@@ -7,14 +7,39 @@
     tools:context="com.fireshield.fsbubbleindicator.MainActivity"
     >
 
-  <TextView
+  <LinearLayout
       android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:text="Hello World!"
-      app:layout_constraintBottom_toBottomOf="parent"
-      app:layout_constraintLeft_toLeftOf="parent"
-      app:layout_constraintRight_toRightOf="parent"
-      app:layout_constraintTop_toTopOf="parent"
-      />
+      android:layout_height="match_parent"
+      android:orientation="vertical"
+      >
+    <com.fireshield.library.FSBubbleIndicator
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:count="5"
+        app:textSize="34sp"
+        />
 
+    <com.fireshield.library.FSBubbleIndicator
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:count="55"
+        app:textSize="34sp"
+        />
+
+    <com.fireshield.library.FSBubbleIndicator
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:count="555"
+        app:textSize="34sp"
+        />
+
+
+    <com.fireshield.library.FSBubbleIndicator
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:count="55555555"
+        app:textSize="34sp"
+        />
+
+  </LinearLayout>
 </android.support.constraint.ConstraintLayout>
