@@ -1,6 +1,7 @@
 package com.fireshield.library
 
 import android.content.Context
+import android.content.res.Resources
 import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
@@ -36,8 +37,10 @@ class FSBubbleIndicator(context: Context?, attrs: AttributeSet?) : FrameLayout(c
     val bubbleColor = ta.getColor(R.styleable.FSBubbleIndicator_bubbleColor, Color.RED)
     val textColor = ta.getColor(R.styleable.FSBubbleIndicator_textColor, Color.WHITE)
 
-    paint = Paint()
+    paint = Paint(Paint.ANTI_ALIAS_FLAG)
     paint.color = bubbleColor
+    paint.setShadowLayer(dpToPx(5), 0F, dpToPx(1), Color.argb(120, 0, 0, 0))
+    setLayerType(LAYER_TYPE_SOFTWARE, paint)
 
     count = ta.getInteger(R.styleable.FSBubbleIndicator_count, 0)
 
@@ -68,8 +71,17 @@ class FSBubbleIndicator(context: Context?, attrs: AttributeSet?) : FrameLayout(c
         params.width = Math.max(tvCount.height, tvCount.width)
       }
       tvCount.requestLayout()
-      rect.right = tvCount.width.toFloat()
-      rect.bottom = tvCount.height.toFloat()
+      val margin = dpToPx(5)
+
+      rect.left = margin
+      rect.top = margin
+      rect.right = tvCount.width.toFloat() - margin
+      rect.bottom = tvCount.height.toFloat() - margin
+
     }
+  }
+
+  fun dpToPx(dp: Int): Float {
+    return (dp * Resources.getSystem().displayMetrics.density)
   }
 }
