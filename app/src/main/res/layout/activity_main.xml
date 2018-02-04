@@ -13,6 +13,7 @@
       android:orientation="vertical"
       >
     <com.fireshield.library.FSBubbleIndicator
+        android:id="@+id/bubble"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:count="5"
@@ -24,6 +25,7 @@
         android:layout_height="wrap_content"
         app:count="55"
         app:textSize="34sp"
+        app:bubbleColor="#81c784"
         />
 
     <com.fireshield.library.FSBubbleIndicator
@@ -31,13 +33,15 @@
         android:layout_height="wrap_content"
         app:count="555"
         app:textSize="34sp"
+        app:bubbleColor="#e7f1a2"
+        app:textColor="#000"
         />
-
 
     <com.fireshield.library.FSBubbleIndicator
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:count="55555555"
+        app:bubbleColor="#3c3eed"
         app:textSize="34sp"
         />
 

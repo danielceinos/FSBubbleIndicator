@@ -16,24 +16,38 @@ import android.widget.TextView
  */
 class FSBubbleIndicator(context: Context?, attrs: AttributeSet?) : FrameLayout(context, attrs) {
 
-  var count: Int
+  var count: Int = 0
+    set(value) {
+      field = value
+      tvCount?.text = value.toString()
+    }
+  private val paint: Paint
+  private var rect: RectF
+  private val tvCount: TextView?
 
   init {
     initialize(context!!)
 
     setWillNotDraw(false)
+    rect = RectF(0F, 0F, 0F, 0F)
+
     val ta = context.obtainStyledAttributes(attrs, R.styleable.FSBubbleIndicator, 0, 0)
     val textSize = ta.getDimension(R.styleable.FSBubbleIndicator_textSize, 20F)
     val bubbleColor = ta.getColor(R.styleable.FSBubbleIndicator_bubbleColor, Color.RED)
+    val textColor = ta.getColor(R.styleable.FSBubbleIndicator_textColor, Color.WHITE)
+
+    paint = Paint()
+    paint.color = bubbleColor
+
     count = ta.getInteger(R.styleable.FSBubbleIndicator_count, 0)
 
     ta.recycle()
 
-    val tvCount = findViewById<TextView>(R.id.tv_count)
+    tvCount = findViewById(R.id.tv_count)
     tvCount.text = count.toString()
     tvCount.setTextSize(TypedValue.COMPLEX_UNIT_SP, textSize / 2)
     tvCount.setPadding((textSize / 2).toInt(), 0, (textSize / 2).toInt(), 0)
-
+    tvCount.setTextColor(textColor)
   }
 
   private fun initialize(context: Context) {
@@ -42,25 +56,20 @@ class FSBubbleIndicator(context: Context?, attrs: AttributeSet?) : FrameLayout(c
 
   override fun onDraw(canvas: Canvas?) {
     super.onDraw(canvas)
-
-    val paint = Paint()
-    paint.color = Color.RED
-
-    val tvCount = findViewById<TextView>(R.id.tv_count)
-
-    val rect = RectF(0F, 0F, tvCount.width.toFloat(), tvCount.height.toFloat())
-    canvas?.drawRoundRect(rect, tvCount.height / 2F, tvCount.height / 2F, paint)
+    canvas?.drawRoundRect(rect, rect.bottom / 2F, rect.bottom / 2F, paint)
   }
 
   override fun onLayout(changed: Boolean, left: Int, top: Int, right: Int, bottom: Int) {
     super.onLayout(changed, left, top, right, bottom)
 
-    val tvCount = findViewById<TextView>(R.id.tv_count)
-    val params = tvCount.layoutParams
-    if (tvCount.height > tvCount.width) {
-      params.width = Math.max(tvCount.height, tvCount.width)
+    if (tvCount != null) {
+      val params = tvCount.layoutParams
+      if (tvCount.height > tvCount.width) {
+        params.width = Math.max(tvCount.height, tvCount.width)
+      }
+      tvCount.requestLayout()
+      rect.right = tvCount.width.toFloat()
+      rect.bottom = tvCount.height.toFloat()
     }
-    tvCount.requestLayout()
   }
-
 }

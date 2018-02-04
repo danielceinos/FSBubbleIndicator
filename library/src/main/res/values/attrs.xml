@@ -3,6 +3,7 @@
   <declare-styleable name="FSBubbleIndicator">
     <attr format="dimension" name="textSize" />
     <attr format="color" name="bubbleColor" />
+    <attr name="textColor" format="color"/>
     <attr format="integer" name="count" />
   </declare-styleable>
 </resources>
