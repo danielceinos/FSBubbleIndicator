@@ -1,6 +1,7 @@
 package com.fireshield.library
 
 import android.content.Context
+import android.graphics.Color
 import android.util.AttributeSet
 import android.util.DisplayMetrics
 import android.view.View
@@ -14,6 +15,19 @@ class FSIconBubble(context: Context?, attrs: AttributeSet?) : FrameLayout(contex
 
   init {
     initialize(context!!)
+
+    val ta = context.obtainStyledAttributes(attrs, R.styleable.FSBubbleIndicator, 0, 0)
+    val textSize = ta.getDimension(R.styleable.FSBubbleIndicator_textSize, 0F)
+    val bubbleColor = ta.getColor(R.styleable.FSBubbleIndicator_bubbleColor, Color.RED)
+    val textColor = ta.getColor(R.styleable.FSBubbleIndicator_textColor, Color.WHITE)
+    val shadowColor = ta.getColor(R.styleable.FSBubbleIndicator_shadowColor, Color.argb(120, 0, 0, 0))
+    ta.recycle()
+
+    val bubble = findViewById<FSBubbleIndicator>(R.id.bubble_indicator)
+    bubble.textSize = textSize
+    bubble.bubbleColor = bubbleColor
+    bubble.textColor = textColor
+    bubble.shadowColor = shadowColor
   }
 
   private fun initialize(context: Context) {

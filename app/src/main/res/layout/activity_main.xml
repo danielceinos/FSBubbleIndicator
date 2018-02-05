@@ -16,11 +16,14 @@
     <com.fireshield.library.FSIconBubble
         android:layout_width="120dp"
         android:layout_height="120dp"
+        app:textSize="20sp"
+
         />
 
     <com.fireshield.library.FSIconBubble
         android:layout_width="48dp"
         android:layout_height="48dp"
+        app:textSize="12sp"
         />
 
     <com.fireshield.library.FSBubbleIndicator

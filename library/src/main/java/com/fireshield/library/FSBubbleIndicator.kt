@@ -30,6 +30,22 @@ class FSBubbleIndicator(context: Context?, attrs: AttributeSet?) : FrameLayout(c
       tvCount?.setPadding((value / 2).toInt(), 0, (value / 2).toInt(), 0)
 
     }
+  var bubbleColor: Int = Color.RED
+    set(value) {
+      field = value
+      paint.color = bubbleColor
+    }
+  var textColor: Int = Color.WHITE
+    set(value) {
+      field = value
+      tvCount?.setTextColor(value)
+    }
+  var shadowColor: Int = Color.BLACK
+    set(value) {
+      field = value
+      paint.setShadowLayer(dpToPx(5), 0F, dpToPx(1), shadowColor)
+    }
+
   private val paint: Paint
   private var rect: RectF
   private val tvCount: TextView?
@@ -39,19 +55,16 @@ class FSBubbleIndicator(context: Context?, attrs: AttributeSet?) : FrameLayout(c
 
     setWillNotDraw(false)
     tvCount = findViewById(R.id.tv_count)
-
     rect = RectF(0F, 0F, 0F, 0F)
+    paint = Paint(Paint.ANTI_ALIAS_FLAG)
+    setLayerType(LAYER_TYPE_SOFTWARE, paint)
 
     val ta = context.obtainStyledAttributes(attrs, R.styleable.FSBubbleIndicator, 0, 0)
     textSize = ta.getDimension(R.styleable.FSBubbleIndicator_textSize, 0F)
-    val bubbleColor = ta.getColor(R.styleable.FSBubbleIndicator_bubbleColor, Color.RED)
-    val textColor = ta.getColor(R.styleable.FSBubbleIndicator_textColor, Color.WHITE)
-    val shadowColor = ta.getColor(R.styleable.FSBubbleIndicator_shadowColor, Color.argb(120, 0, 0, 0))
+    bubbleColor = ta.getColor(R.styleable.FSBubbleIndicator_bubbleColor, Color.RED)
+    textColor = ta.getColor(R.styleable.FSBubbleIndicator_textColor, Color.WHITE)
+    shadowColor = ta.getColor(R.styleable.FSBubbleIndicator_shadowColor, Color.argb(120, 0, 0, 0))
 
-    paint = Paint(Paint.ANTI_ALIAS_FLAG)
-    paint.color = bubbleColor
-    paint.setShadowLayer(dpToPx(5), 0F, dpToPx(1), shadowColor)
-    setLayerType(LAYER_TYPE_SOFTWARE, paint)
 
     count = ta.getInteger(R.styleable.FSBubbleIndicator_count, 0)
 
@@ -100,6 +113,7 @@ class FSBubbleIndicator(context: Context?, attrs: AttributeSet?) : FrameLayout(c
   fun dpToPx(dp: Int): Float {
     return (dp * Resources.getSystem().displayMetrics.density)
   }
+
   fun pxToDp(px: Int): Int {
     val displayMetrics = context.resources.displayMetrics
     return Math.round(px / (displayMetrics.xdpi / DisplayMetrics.DENSITY_DEFAULT))
