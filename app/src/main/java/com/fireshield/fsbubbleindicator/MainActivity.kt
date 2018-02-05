@@ -1,8 +1,7 @@
 package com.fireshield.fsbubbleindicator
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import com.fireshield.library.FSBubbleIndicator
+import android.support.v7.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -10,6 +9,6 @@ class MainActivity : AppCompatActivity() {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_main)
 
-    findViewById<FSBubbleIndicator>(R.id.bubble).count = 777
+//    findViewById<FSBubbleIndicator>(R.id.bubble).count = 777
   }
 }

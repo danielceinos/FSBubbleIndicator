@@ -3,8 +3,13 @@
   <declare-styleable name="FSBubbleIndicator">
     <attr format="dimension" name="textSize" />
     <attr format="color" name="bubbleColor" />
-    <attr name="textColor" format="color"/>
+    <attr format="color" name="textColor" />
     <attr format="integer" name="count" />
-    <attr name="shadowColor" format="color"/>
+    <attr format="color" name="shadowColor" />
   </declare-styleable>
+
+  <declare-styleable name="FSIconBubble">
+    <attr format="reference" name="icon" />
+  </declare-styleable>
+
 </resources>
