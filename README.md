@@ -1,7 +1,7 @@
 # FSBubbleIndicator
 
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/danielceinos/FSBubbleIndicator/blob/master/LICENSE.md)
-[![Version](https://img.shields.io/badge/jitpack-1.0.0-green.svg)](https://jitpack.io/#danielceinos/FSBubbleIndicator/1.0.0)
+[![Version](https://img.shields.io/badge/jitpack-1.0.1-green.svg)](https://jitpack.io/#danielceinos/FSBubbleIndicator/1.0.1)
 
 <p align="center">
 	<img src="https://github.com/danielceinos/FSBubbleIndicator/blob/develop/example.png" />
@@ -24,7 +24,7 @@
   ```
   ```
   dependencies {
-	        compile 'com.github.danielceinos:FSBubbleIndicator:1.0.0'
+	        compile 'com.github.danielceinos:FSBubbleIndicator:1.0.1'
 	}
   ```
 # Use
@@ -32,11 +32,18 @@
 ## Options
 
 ```xml
-    <attr format="dimension" name="textSize" />
-    <attr format="color" name="bubbleColor" />
-    <attr name="textColor" format="color"/>
-    <attr format="integer" name="count" />
-    <attr name="shadowColor" format="color"/>
+	<declare-styleable name="FSBubbleIndicator">
+    	<attr format="dimension" name="textSize" />
+    	<attr format="color" name="bubbleColor" />
+    	<attr format="color" name="textColor" />
+    	<attr format="integer" name="count" />
+    	<attr format="color" name="shadowColor" />
+  	</declare-styleable>
+
+  	<declare-styleable name="FSIconBubble">
+    	<attr format="reference" name="icon" />
+  	</declare-styleable>
+
 ```
 
 ## Example
@@ -48,6 +55,17 @@
         app:count="55555555"
         app:bubbleColor="#3c3eed"
         app:textSize="34sp"
+        />
+```
+
+```xml
+ <com.fireshield.library.FSIconBubble
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        app:textSize="8sp"
+        app:count="5"
+        app:bubbleColor="#ba68c8"
+        app:icon="@drawable/ic_favorite_border"
         />
 ```
 
