@@ -7,4 +7,9 @@
     <attr format="integer" name="count" />
     <attr format="color" name="shadowColor" />
   </declare-styleable>
+
+  <declare-styleable name="FSIconBubble">
+    <attr format="reference" name="icon" />
+  </declare-styleable>
+
 </resources>

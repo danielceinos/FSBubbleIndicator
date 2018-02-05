@@ -17,13 +17,14 @@
         android:layout_width="120dp"
         android:layout_height="120dp"
         app:textSize="20sp"
-
+        app:icon="@drawable/ic_chat_bubble"
         />
 
     <com.fireshield.library.FSIconBubble
         android:layout_width="48dp"
         android:layout_height="48dp"
         app:textSize="8sp"
+        app:icon="@drawable/ic_favorite_border"
         />
 
     <com.fireshield.library.FSBubbleIndicator

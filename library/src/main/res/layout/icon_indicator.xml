@@ -9,7 +9,6 @@
       android:id="@+id/iv_icon"
       android:layout_width="match_parent"
       android:layout_height="match_parent"
-      android:src="@drawable/ic_fingerprint_black_48dp"
       />
 
   <com.fireshield.library.FSBubbleIndicator
