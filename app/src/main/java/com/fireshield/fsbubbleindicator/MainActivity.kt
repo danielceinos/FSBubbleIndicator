@@ -10,6 +10,6 @@ class MainActivity : AppCompatActivity() {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_main)
 
-    findViewById<FSBubbleIndicator>(R.id.bubble).count = 777
+//    findViewById<FSBubbleIndicator>(R.id.bubble).count = 777
   }
 }
