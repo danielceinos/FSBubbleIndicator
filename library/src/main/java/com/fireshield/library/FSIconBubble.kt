@@ -32,7 +32,6 @@ class FSIconBubble(context: Context?, attrs: AttributeSet?) : FrameLayout(contex
 
   private fun initialize(context: Context) {
     View.inflate(context, R.layout.icon_indicator, this)
-
   }
 
   override fun onLayout(changed: Boolean, left: Int, top: Int, right: Int, bottom: Int) {
@@ -41,13 +40,7 @@ class FSIconBubble(context: Context?, attrs: AttributeSet?) : FrameLayout(contex
     val bubbleIndicator = findViewById<FSBubbleIndicator>(R.id.bubble_indicator)
     val params = bubbleIndicator.layoutParams
     params.height = (bottom - top) / 2
-//    bubbleIndicator.textSize = pxToDp((bottom - top) / 2).toFloat()
     bubbleIndicator.requestLayout()
 
-  }
-
-  fun pxToDp(px: Int): Int {
-    val displayMetrics = context.resources.displayMetrics
-    return Math.round(px / (displayMetrics.xdpi / DisplayMetrics.DENSITY_DEFAULT))
   }
 }
