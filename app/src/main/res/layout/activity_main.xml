@@ -18,12 +18,15 @@
         android:layout_height="120dp"
         app:textSize="20sp"
         app:icon="@drawable/ic_chat_bubble"
+        app:count="999"
         />
 
     <com.fireshield.library.FSIconBubble
         android:layout_width="48dp"
         android:layout_height="48dp"
         app:textSize="8sp"
+        app:count="5"
+        app:bubbleColor="#ba68c8"
         app:icon="@drawable/ic_favorite_border"
         />
 

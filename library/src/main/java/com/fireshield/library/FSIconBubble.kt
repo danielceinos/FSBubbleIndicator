@@ -21,6 +21,8 @@ class FSIconBubble(context: Context?, attrs: AttributeSet?) : FrameLayout(contex
     val bubbleColor = ta.getColor(R.styleable.FSBubbleIndicator_bubbleColor, Color.RED)
     val textColor = ta.getColor(R.styleable.FSBubbleIndicator_textColor, Color.WHITE)
     val shadowColor = ta.getColor(R.styleable.FSBubbleIndicator_shadowColor, Color.argb(120, 0, 0, 0))
+    val count = ta.getInteger(R.styleable.FSBubbleIndicator_count, 0)
+
     ta.recycle()
 
     val ta2 = context.obtainStyledAttributes(attrs, R.styleable.FSIconBubble, 0, 0)
@@ -32,6 +34,7 @@ class FSIconBubble(context: Context?, attrs: AttributeSet?) : FrameLayout(contex
     bubble.bubbleColor = bubbleColor
     bubble.textColor = textColor
     bubble.shadowColor = shadowColor
+    bubble.count = count
 
     val ivIcon = findViewById<ImageView>(R.id.iv_icon)
     ivIcon.setImageDrawable(icon)
