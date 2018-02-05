@@ -3,7 +3,6 @@ package com.fireshield.library
 import android.content.Context
 import android.graphics.Color
 import android.util.AttributeSet
-import android.util.DisplayMetrics
 import android.view.View
 import android.widget.FrameLayout
 

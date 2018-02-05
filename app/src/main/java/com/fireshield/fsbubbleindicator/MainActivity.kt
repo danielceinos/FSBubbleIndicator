@@ -1,8 +1,7 @@
 package com.fireshield.fsbubbleindicator
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import com.fireshield.library.FSBubbleIndicator
+import android.support.v7.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity() {
 
