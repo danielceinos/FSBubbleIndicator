@@ -40,6 +40,19 @@ class FSIconBubble(context: Context?, attrs: AttributeSet?) : FrameLayout(contex
     ivIcon.setImageDrawable(icon)
   }
 
+  fun setCount(count: Int) {
+    findViewById<FSBubbleIndicator>(R.id.bubble_indicator).count = count
+    findViewById<FSBubbleIndicator>(R.id.bubble_indicator).visibility = View.VISIBLE
+  }
+
+  fun hideBubbleCount(){
+    findViewById<FSBubbleIndicator>(R.id.bubble_indicator).visibility = View.GONE
+  }
+
+  fun showBubbleCount(){
+    findViewById<FSBubbleIndicator>(R.id.bubble_indicator).visibility = View.VISIBLE
+  }
+
   private fun initialize(context: Context) {
     View.inflate(context, R.layout.icon_indicator, this)
   }
