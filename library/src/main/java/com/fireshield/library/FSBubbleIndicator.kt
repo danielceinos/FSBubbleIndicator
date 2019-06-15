@@ -43,7 +43,7 @@ class FSBubbleIndicator(context: Context, attrs: AttributeSet?) : FrameLayout(co
     var shadowColor: Int = Color.BLACK
         set(value) {
             field = value
-            paint.setShadowLayer(dpToPx(5), 0F, dpToPx(1), shadowColor)
+//            paint.setShadowLayer(dpToPx(5), 0F, dpToPx(1), shadowColor)
         }
 
     private val paint: Paint
@@ -84,7 +84,7 @@ class FSBubbleIndicator(context: Context, attrs: AttributeSet?) : FrameLayout(co
         super.onLayout(changed, left, top, right, bottom)
         if (tvCount != null) {
             val params = tvCount.layoutParams
-            val margin = dpToPx(5)
+            val margin = dpToPx(0)
             if (tvCount.height == 0 || tvCount.width == 0) {
                 params.width = bottom - top
                 params.height = right - left
