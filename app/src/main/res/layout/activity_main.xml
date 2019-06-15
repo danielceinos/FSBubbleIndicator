@@ -14,6 +14,16 @@
       >
 
     <com.fireshield.library.FSIconBubble
+      android:id="@+id/b_notifications"
+      android:layout_width="40dp"
+      android:layout_height="48dp"
+      android:tint="#212121"
+      app:bubbleColor="#d50000"
+      app:count="0"
+      app:icon="@drawable/ic_chat_bubble"
+      app:textSize="14sp" />
+
+    <com.fireshield.library.FSIconBubble
         android:layout_width="120dp"
         android:layout_height="120dp"
         app:textSize="20sp"
