@@ -4,75 +4,66 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.fireshield.fsbubbleindicator.MainActivity"
-    >
+    tools:context="com.fireshield.fsbubbleindicator.MainActivity">
 
-  <LinearLayout
-      android:layout_width="wrap_content"
-      android:layout_height="match_parent"
-      android:orientation="vertical"
-      >
-
-    <com.fireshield.library.FSIconBubble
-      android:id="@+id/b_notifications"
-      android:layout_width="40dp"
-      android:layout_height="48dp"
-      android:tint="#212121"
-      app:bubbleColor="#d50000"
-      app:count="0"
-      app:icon="@drawable/ic_chat_bubble"
-      app:textSize="14sp" />
-
-    <com.fireshield.library.FSIconBubble
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        app:textSize="20sp"
-        app:icon="@drawable/ic_chat_bubble"
-        app:count="999"
-        />
-
-    <com.fireshield.library.FSIconBubble
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        app:textSize="8sp"
-        app:count="5"
-        app:bubbleColor="#ba68c8"
-        app:icon="@drawable/ic_favorite_border"
-        />
-
-    <com.fireshield.library.FSBubbleIndicator
-        android:id="@+id/bubble"
+    <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:count="5"
-        app:textSize="34sp"
-        />
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <com.fireshield.library.FSBubbleIndicator
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:count="55"
-        app:textSize="34sp"
-        app:bubbleColor="#81c784"
-        />
+        <com.fireshield.library.FSIconBubble
+            android:id="@+id/b_notifications"
+            android:layout_width="40dp"
+            android:layout_height="48dp"
+            android:tint="#212121"
+            app:bubbleColor="#d50000"
+            app:count="0"
+            app:icon="@drawable/ic_chat_bubble"
+            app:textSize="14sp" />
 
-    <com.fireshield.library.FSBubbleIndicator
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:count="5"
-        app:textSize="34sp"
-        app:bubbleColor="#e7f1a2"
-        app:shadowColor="#311b92"
-        app:textColor="#000"
-        />
+        <com.fireshield.library.FSIconBubble
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            app:count="999"
+            app:icon="@drawable/ic_chat_bubble"
+            app:textSize="20sp" />
 
-    <com.fireshield.library.FSBubbleIndicator
-        android:layout_width="wrap_content"
-        android:layout_height="40dp"
-        app:count="55555555"
-        app:bubbleColor="#3c3eed"
-        app:textSize="20sp"
-        />
+        <com.fireshield.library.FSIconBubble
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            app:bubbleColor="#ba68c8"
+            app:count="5"
+            app:icon="@drawable/ic_favorite_border"
+            app:textSize="8sp" />
 
-  </LinearLayout>
+        <com.fireshield.library.FSBubbleIndicator
+            android:id="@+id/bubble"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:count="5"
+            app:textSize="34sp" />
+
+        <com.fireshield.library.FSBubbleIndicator
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:bubbleColor="#81c784"
+            app:count="55"
+            app:textSize="34sp" />
+
+        <com.fireshield.library.FSBubbleIndicator
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:bubbleColor="#e7f1a2"
+            app:count="5"
+            app:textColor="#000"
+            app:textSize="34sp" />
+
+        <com.fireshield.library.FSBubbleIndicator
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            app:bubbleColor="#3c3eed"
+            app:count="55555555"
+            app:textSize="20sp" />
+
+    </LinearLayout>
 </android.support.constraint.ConstraintLayout>

@@ -4,23 +4,56 @@ import android.content.Context
 import android.graphics.Color
 import android.util.AttributeSet
 import android.view.View
+import android.view.animation.AccelerateDecelerateInterpolator
+import android.view.animation.Animation
+import android.view.animation.AnticipateInterpolator
+import android.view.animation.ScaleAnimation
 import android.widget.FrameLayout
 import android.widget.ImageView
-
 
 /**
  * Created by Daniel S on 05/02/2018.
  */
 class FSIconBubble(context: Context, attrs: AttributeSet?) : FrameLayout(context, attrs) {
 
+    private var animationDuration: Int = 200
+
+    private val bubbleIndicator: FSBubbleIndicator
+        get() = findViewById(R.id.bubble_indicator)
+
+    private val update: Animation by lazy {
+        ScaleAnimation(1f, 1.3f, 1f, 1.3f,
+            Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f).apply {
+            duration = animationDuration.toLong()
+            repeatMode = Animation.REVERSE
+            repeatCount = 1
+            interpolator = AccelerateDecelerateInterpolator()
+        }
+    }
+
+    private val show: Animation by lazy {
+        ScaleAnimation(0f, 1f, 0f, 1f,
+            Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f).apply {
+            duration = animationDuration.toLong()
+            interpolator = AccelerateDecelerateInterpolator()
+        }
+    }
+
+    private val hide: Animation by lazy {
+        ScaleAnimation(1f, 0f, 1f, 0f,
+            Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f).apply {
+            duration = animationDuration.toLong()
+            interpolator = AnticipateInterpolator()
+        }
+    }
+
     init {
-        initialize(context)
+        View.inflate(context, R.layout.icon_indicator, this)
 
         val ta = context.obtainStyledAttributes(attrs, R.styleable.FSBubbleIndicator, 0, 0)
         val textSize = ta.getDimension(R.styleable.FSBubbleIndicator_textSize, 0F)
         val bubbleColor = ta.getColor(R.styleable.FSBubbleIndicator_bubbleColor, Color.RED)
         val textColor = ta.getColor(R.styleable.FSBubbleIndicator_textColor, Color.WHITE)
-        val shadowColor = ta.getColor(R.styleable.FSBubbleIndicator_shadowColor, Color.argb(120, 0, 0, 0))
         val count = ta.getInteger(R.styleable.FSBubbleIndicator_count, 0)
 
         ta.recycle()
@@ -33,7 +66,6 @@ class FSIconBubble(context: Context, attrs: AttributeSet?) : FrameLayout(context
         bubble.textSize = textSize
         bubble.bubbleColor = bubbleColor
         bubble.textColor = textColor
-        bubble.shadowColor = shadowColor
         bubble.count = count
 
         val ivIcon = findViewById<ImageView>(R.id.iv_icon)
@@ -43,20 +75,16 @@ class FSIconBubble(context: Context, attrs: AttributeSet?) : FrameLayout(context
     }
 
     fun setCount(count: Int) {
-        findViewById<FSBubbleIndicator>(R.id.bubble_indicator).count = count
-        findViewById<FSBubbleIndicator>(R.id.bubble_indicator).visibility = View.VISIBLE
+        bubbleIndicator.startAnimation(update)
+        bubbleIndicator.count = count
     }
 
     fun hideBubbleCount() {
-        findViewById<FSBubbleIndicator>(R.id.bubble_indicator).visibility = View.GONE
+        bubbleIndicator.startAnimation(hide)
     }
 
     fun showBubbleCount() {
-        findViewById<FSBubbleIndicator>(R.id.bubble_indicator).visibility = View.VISIBLE
-    }
-
-    private fun initialize(context: Context) {
-        View.inflate(context, R.layout.icon_indicator, this)
+        bubbleIndicator.startAnimation(show)
     }
 
     override fun onLayout(changed: Boolean, left: Int, top: Int, right: Int, bottom: Int) {

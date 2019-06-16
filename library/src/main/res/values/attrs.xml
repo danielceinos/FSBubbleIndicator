@@ -5,7 +5,6 @@
     <attr format="color" name="bubbleColor" />
     <attr format="color" name="textColor" />
     <attr format="integer" name="count" />
-    <attr format="color" name="shadowColor" />
   </declare-styleable>
 
   <declare-styleable name="FSIconBubble">
